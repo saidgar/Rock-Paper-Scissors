@@ -1,0 +1,12 @@
+.invisible {
+    visibility: hidden;
+}
+#score {
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+}
+#playerInput {
+    display: flex;
+    justify-content: center;   
+}

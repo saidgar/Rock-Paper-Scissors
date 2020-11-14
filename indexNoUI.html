@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            const computerMove = Math.floor(Math.random() * 3);
+            switch (computerMove) {
+                case 0:
+                    return "Rock";
+                    break;
+                case 1:
+                    return 'Scissors';
+                    break;
+                case 2: 
+                    return 'Paper';
+                    break;
+                default:
+                    return 'Something went wrong when calculating computer move';
+            }
+        }
+        function playerPlayedRock(computerSelection) {
+            switch (computerSelection) {
+                case 'rock':
+                    return "It's a draw."
+                    break;
+                case 'paper': 
+                    return "You Lose! Paper beats Rock.";
+                    break;
+                case 'scissors':
+                    return "You Win! Rock beats Scissors."  
+                    break;
+                default: 
+                    return 'Something went wrong when calculating winner';
+            }
+        }
+        function playerPlayedPaper(computerSelection) {
+            switch (computerSelection) {
+                case 'rock':
+                    return "You Win! Paper beats Rock."
+                    break;
+                case 'paper': 
+                    return "It's a draw.";
+                    break;
+                case 'scissors':
+                    return "You lose! Scissors beats Paper."  
+                    break;
+                default: 
+                    return 'Something went wrong when calculating winner';
+            }
+        }
+        function playerPlayedScissors(computerSelection) {
+            switch (computerSelection) {
+                case 'rock':
+                    return "You Lose! Rock beats Scissors."
+                    break;
+                case 'paper': 
+                    return "You Wind! Scissors beats Papaer.";
+                    break;
+                case 'scissors':
+                    return "It's a draw."  
+                    break;
+                default: 
+                    return 'Something went wrong when calculating winner';
+            } 
+        }
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+            switch (playerSelection) {
+                case 'rock':
+                    return playerPlayedRock(computerSelection);
+                    break;
+                case 'paper':
+                    return playerPlayedPaper(computerSelection);
+                    break;
+                case 'scissors':
+                    return playerPlayedScissors(computerSelection);
+                    break;
+                default: 
+                    return 'There is no such move.';
+            }
+        }
+        function game() {
+            let gamesToPlay = prompt("How many games do You want to play?");
+            for (let i = 0; i < gamesToPlay; i++) {
+                alert(playRound(prompt("Your move:"), computerPlay()));
+            }
+        }
+        game();
+    </script>
+</body>
+</html>
